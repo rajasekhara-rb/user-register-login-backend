@@ -55,7 +55,7 @@ app.post("/register", async (req, res) => {
                 email: email,
                 password: password
             })
-            userpost.save().catch
+            userpost.save()
             res.send({ message: "User registered successfully" });
         } catch (error) {
             res.status(400).send(error)
@@ -73,7 +73,7 @@ app.post("/login", async (req, res) => {
     try {
         if (userlogin) {
             if (password == userlogin.password) {
-                res.status(200).send({ message: "User Login Successful" })
+                res.status(200).send({ message: "User Login Successful", userlogin})
             } else {
                 res.status(400).send({ message: "Incorrect Password" })
             }
